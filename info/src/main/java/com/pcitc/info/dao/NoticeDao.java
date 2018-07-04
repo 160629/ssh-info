@@ -1,6 +1,9 @@
 package com.pcitc.info.dao;
 
 
+import java.util.List;
+import java.util.Map;
+
 import com.pcitc.info.model.Notice;
 
 /**
@@ -13,5 +16,7 @@ import com.pcitc.info.model.Notice;
 public interface NoticeDao {
 	
 	void save(Notice n);
+	
+	List<Map<String, Object>> getNotices();
 
 }

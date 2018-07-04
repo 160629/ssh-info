@@ -1,15 +1,19 @@
 package com.pcitc.info.model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
+import javax.persistence.JoinColumn;
 
 @Entity
-@Table(name="user")
+@Table(name="notice")
 public class Notice {
 	
     @Id
@@ -18,8 +22,23 @@ public class Notice {
     private Integer noticeId;
     @Column(name="notice_message")
     private String noticeMessage;
+    @ManyToMany
+    @JoinTable(                                
+            name="notice_user",                    //中间表的名字
+            joinColumns= {@JoinColumn(name="notice_id")},        //外键的字段
+            inverseJoinColumns= {@JoinColumn(name="user_id")})    //反转控制字段的名字
+    private Set<User> users;
+    
 
-    public Integer getNoticeId() {
+    public Set<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+
+	public Integer getNoticeId() {
         return noticeId;
     }
 

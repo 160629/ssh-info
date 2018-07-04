@@ -1,6 +1,8 @@
 package com.pcitc.info.service.impl;
 
-import org.aspectj.internal.lang.annotation.ajcDeclareEoW;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,8 +25,12 @@ public class NoticeServiceImpl implements NoticeService{
 	private NoticeDao noticeDao;
 
 	public void save(Notice n) {
-		// TODO Auto-generated method stub
 		noticeDao.save(n);
+	}
+
+	public List<Map<String, Object>> getNotices() {
+		// TODO Auto-generated method stub
+		return noticeDao.getNotices();
 	}
 
 }

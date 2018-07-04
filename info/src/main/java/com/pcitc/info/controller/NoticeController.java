@@ -1,5 +1,8 @@
 package com.pcitc.info.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,5 +27,11 @@ public class NoticeController {
 	@ResponseBody
 	public void save(Notice n){
 		noticeService.save(n);		
+	}
+	
+	@RequestMapping("getNotices")
+	@ResponseBody
+	public List<Map<String, Object>> getNotices(){
+		return noticeService.getNotices();		
 	}
 }

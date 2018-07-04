@@ -1,5 +1,8 @@
 package com.pcitc.info.service;
 
+import java.util.List;
+import java.util.Map;
+
 import com.pcitc.info.model.Notice;
 
 /**
@@ -10,4 +13,5 @@ import com.pcitc.info.model.Notice;
 */
 public interface NoticeService {
 	void save(Notice n);
+	List<Map<String, Object>> getNotices();
 }
